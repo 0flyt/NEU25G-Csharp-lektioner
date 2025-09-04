@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L005_Loopar", "L005_Loopar\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn001_Variabler", "Ovn001_Variabler\Ovn001_Variabler.csproj", "{92554940-41D5-4505-922D-8BD28F79554C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn002_Loopar", "Ovn002_Loopar\Ovn002_Loopar.csproj", "{CD8A4130-4768-4FED-B173-098339C5137F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{92554940-41D5-4505-922D-8BD28F79554C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92554940-41D5-4505-922D-8BD28F79554C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92554940-41D5-4505-922D-8BD28F79554C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8A4130-4768-4FED-B173-098339C5137F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8A4130-4768-4FED-B173-098339C5137F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8A4130-4768-4FED-B173-098339C5137F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8A4130-4768-4FED-B173-098339C5137F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

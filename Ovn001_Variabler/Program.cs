@@ -110,27 +110,27 @@
 //Andra talet: 2
 //7 + 2 = 9
 
-Console.Write("Första talet: ");
-double operand1 = double.Parse(Console.ReadLine());
+//Console.Write("Första talet: ");
+//double operand1 = double.Parse(Console.ReadLine());
 
-Console.Write("Välj +, -, *, /: ");
-string operator1 = Console.ReadLine();
+//Console.Write("Välj +, -, *, /: ");
+//string operator1 = Console.ReadLine();
 
-Console.Write("Andra talet: ");
-double operand2 = double.Parse(Console.ReadLine());
+//Console.Write("Andra talet: ");
+//double operand2 = double.Parse(Console.ReadLine());
 
-double result = operator1 switch
-{
-    "+" => operand1 + operand2,
-    "-" => operand1 - operand2,
-    "*" => operand1 * operand2,
-    "/" => operand1 / operand2,
-};
+//double result = operator1 switch
+//{
+//    "+" => operand1 + operand2,
+//    "-" => operand1 - operand2,
+//    "*" => operand1 * operand2,
+//    "/" => operand1 / operand2,
+//};
 
-if ((operand2 == 0) && (operator1 == "/"))
-    Console.WriteLine("Du kan inte dela med 0.");
-else
-    Console.WriteLine($"{operand1} {operator1} {operand2} = {result}");
+//if ((operand2 == 0) && (operator1 == "/"))
+//    Console.WriteLine("Du kan inte dela med 0.");
+//else
+//    Console.WriteLine($"{operand1} {operator1} {operand2} = {result}");
 
 //7.Summa och medelvärde
 
@@ -146,3 +146,41 @@ else
 //12
 //Skriv in ett tal:
 //Medelvärde: 4
+
+
+//int result = 0;
+//Console.Write("Skriv in ett tal: ");
+//int tal1 = Int32.Parse(Console.ReadLine());
+//Console.WriteLine(result += tal1);
+
+//Console.Write("Skriv in ett till tal: ");
+//int tal2 = Int32.Parse(Console.ReadLine());
+//Console.WriteLine(result += tal2);
+
+//Console.Write("Skriv in ett till tal: ");
+//int tal3 = Int32.Parse(Console.ReadLine());
+//Console.WriteLine(result += tal3);
+
+//Console.WriteLine(result / 3);
+
+//int adderade = 0;
+//int i = 0;
+
+//while (true)
+//{
+//    Console.Write("Skriv in ett tal: ");
+//    string tal = Console.ReadLine();
+//    if (string.IsNullOrEmpty(tal) || !int.TryParse(tal, out int result))
+//    {
+//        if (i == 0)
+//            continue;
+//        else
+//            Console.WriteLine($"Medeltal: {adderade / i}");
+//        break;
+//    }
+//    else
+//    {
+//        Console.WriteLine(adderade += result);
+//        i++;
+//    }
+//}

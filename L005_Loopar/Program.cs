@@ -40,3 +40,17 @@
 //        break;
 //    }
 //}
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    Console.WriteLine(i);
+//    if (i == 5)
+//        break;
+//}
+
+
+for (int i = 1; i <= 10; i++)
+{
+    if (i == 5) continue;
+    Console.WriteLine(i);
+}

@@ -112,7 +112,7 @@ using System.Threading.Channels;
 //    }
 //}
 
-//  --- Utan .Contains samt ToUpper ---
+//  --- Utan .Contains samt med ToUpper ---
 
 //Console.Write("Skriv in en mening: ");
 //string myString = Console.ReadLine();
@@ -140,17 +140,20 @@ using System.Threading.Channels;
 //string myString = Console.ReadLine().ToLower();
 //string vokaler = "aeiouyåäö";
 
-//for (int i = 0; i < myString.Length; i++)
+//foreach (char c in myString)
 //{
-//    if (vokaler.Contains(myString[i]))
+//    bool isVokal = false;
+//    foreach (char v in vokaler)
 //    {
+//        if (c == v)
+//            isVokal = true;
+//    }
 
-//        Console.Write(myString[i]);
-//    }
+//    if (!isVokal && char.IsLetter(c))
+//        Console.Write($"{c}o{c}");
 //    else
-//    {
-//        Console.Write($"{myString[i]}o{myString[i]}");
-//    }
+//        Console.Write(c);
+//    isVokal = false;
 //}
 
 //5. Palindrom

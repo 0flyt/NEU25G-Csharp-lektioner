@@ -244,6 +244,8 @@ static string ThrowMultipleDice(int n)
     return result;
 }
 Console.WriteLine(ThrowMultipleDice(4));
+Console.WriteLine();
+
 
 //Extra utmaning: Lägg till en frivillig(optional) int på båda funktionerna, där man kan ange antal sidor på tärningen (default 6).
 

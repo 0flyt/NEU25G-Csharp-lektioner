@@ -21,6 +21,8 @@
 //Skriv om funktionen ovan så att den istället för att skriva ut namnet returnerar en string med hela namnet.
 //Anropa funktionen och skriv ut returvärdet.
 
+using System;
+
 static string FullName(string firstName, string lastName)
 {
     return $"{firstName} {lastName}";
@@ -341,34 +343,185 @@ Console.WriteLine();
 
 //Tips: Kolla upp Console.ReadKey(); och Console.KeyAvailable;
 
-static void DrawBox(int length, int height, int left, int top)
-{
-    for (int i = 1; i <= height; i++)
-    {
-        Console.SetCursorPosition(left, top + i - 1);
+//static void DrawBox(int length, int height, int left, int top, int playerXpos, int playerYpos)
+//{
+//    for (int i = 1; i <= height; i++)
+//    {
+//        Console.SetCursorPosition(left, top + i - 1);
 
-        for (int j = 1; j <= length; j++)
-        {
-            if (i == 1 || i == height || j == 1 || j == length)
-                Console.Write("#");
-            else
-                Console.Write("-");
-        }
+//        for (int j = 1; j <= length; j++)
+//        {
+//            if (i == 1 || i == height || j == 1 || j == length)
+//                Console.Write("#");
+//            else
+//            {
+//                if (i == playerYpos && j == playerXpos)
+//                {
+//                    Console.Write("@");
+//                }
+//                else
+//                    Console.Write("-");
+//            }
 
-    }
-}
-DrawBox(40, 20, 0, 0);
+
+//        }
+
+//    }
+//}
+
+
+//int length = 40;
+//int height = 20;
+//int playerYPos = height / 2;
+//int playerXPos = length / 2;
+
+//while (true)
+//{
+
+//    Console.CursorVisible = false;
+//    Thread.Sleep(100);
+
+//    ConsoleKeyInfo key = Console.ReadKey();
+
+//    if (key.Key.ToString() == "W" && playerYPos != 2)
+//    {
+//        playerYPos--;
+//    }
+
+//    if (key.Key.ToString() == "S" && playerYPos != height - 1)
+//    {
+//        playerYPos++;
+//    }
+//    if (key.Key.ToString() == "A" && playerXPos != 2)
+//    {
+//        playerXPos--;
+//    }
+//    if (key.Key.ToString() == "D" && playerXPos != length - 1)
+//    {
+//        playerXPos++;
+//    }
+
+
+//    DrawBox(length, height, 0, 0, playerXPos, playerYPos);
+//}
+
 
 //14.Masken
 
-//Skriv om DrawBox() så den istället returnerar en 2D-array av char med tecknen som den tidigare skrev ut på displayen. Man ska också kunna mata in en tredje parameter för antal slumpade ‘#’. Om man anger t.ex 5 så ska 5 stycken extra ‘#’ slumpas ut på random ställen inne i boxen.
+//Skriv om DrawBox() så den istället returnerar en 2D-array av char med tecknen som den tidigare skrev ut på displayen.
+//Man ska också kunna mata in en tredje parameter för antal slumpade ‘#’.
+//Om man anger t.ex 5 så ska 5 stycken extra ‘#’ slumpas ut på random ställen inne i boxen.
 
-//Skriv sedan en annan funktion som tar och ritar ut arrayen på skärmen. Fixa så man kan flytta runt @ med piltangenterna. Jämför positionen mot arrayen och gör så man inte kan gå på någon '#'.
+//Skriv sedan en annan funktion som tar och ritar ut arrayen på skärmen.
+//Fixa så man kan flytta runt @ med piltangenterna. Jämför positionen mot arrayen och gör så man inte kan gå på någon '#'.
 
-//Extra utmaning: Gör en "orm" av '@'. När man flyttar positionen på @ så följer (t.ex) 5 andra @ efter i samma spår som man förflyttat sig.
+static char[,] DrawBox(int length, int height, int obstacles)
+{
+    char[,] map = new char[height, length];
 
-//Extra utmaning 2: I det klassiska spelet "masken" (snake) förflyttar sig en mask i jämna tidsintervall i den riktning spelaren senast angav med piltangenterna. Någonstans på banan finns ett äpple masken ska äta. Det gäller för spelaren att ta sig dit utan att krocka med något hinder, eller sin egen svans. När man tar äpplet blir masken längre och ett nytt äpple dyker upp på slumpvis vald plats på banan.
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < length; j++)
+        {
+            if (j == 0 || j == length - 1 || i == 0 || i == height - 1)
+            {
+                map[i,j] = '#';
+            }
+            else
+            {
+                map[i, j] = '-';
+               
+                
+            }
+        }
+    }
+
+    for (int o = 0; o < obstacles; o++)
+    {
+        Random random = new Random();
+        int rndY = random.Next(1, height);
+        int rndX = random.Next(1, length);
+        if (map[rndY, rndX] != '#')
+        {
+            map[rndY, rndX] = '#';
+        }
+        else
+        {
+            o--;
+        }
+        
+    }
+        return map;
+}
+
+static void RenderGame(char[,] map)
+{
+    for (int y = 0; y < map.GetLength(0); y++)
+    {
+        for (int x = 0; x < map.GetLength(1); x++)
+        {
+            Console.Write(map[y,x]);
+        }
+        Console.WriteLine();
+    }
+}
+
+RenderGame(DrawBox(40, 20, 5));
+
+//{0,0} {0,1} {0,2} {0,3} {0,4}
+//{1,0} {1,1} {1,2} {1,3} {1,4}
+//{2,0} {2,1} {2,2} {2,3} {2,4}
+//{3,0} {3,1} {3,2} {3,3} {3,4}
+//{4,0} {4,1} {4,2} {4,3} {4,4}
+//{5,0} {5,1} {5,2} {5,3} {5,4}
+
+
+//int length = 40;
+//int height = 20;
+//int playerYPos = height / 2;
+//int playerXPos = length / 2;
+
+//while (true)
+//{
+
+//    Console.CursorVisible = false;
+//    Thread.Sleep(100);
+
+//    ConsoleKeyInfo key = Console.ReadKey();
+
+//    if (key.Key.ToString() == "W" && playerYPos != 2)
+//    {
+//        playerYPos--;
+//    }
+
+//    if (key.Key.ToString() == "S" && playerYPos != height - 1)
+//    {
+//        playerYPos++;
+//    }
+//    if (key.Key.ToString() == "A" && playerXPos != 2)
+//    {
+//        playerXPos--;
+//    }
+//    if (key.Key.ToString() == "D" && playerXPos != length - 1)
+//    {
+//        playerXPos++;
+//    }
+
+
+//    DrawBox(length, height, 0, 0, playerXPos, playerYPos);
+//}
+
+//Extra utmaning: Gör en "orm" av '@'.
+//När man flyttar positionen på @ så följer (t.ex) 5 andra @ efter i samma spår som man förflyttat sig.
+
+//Extra utmaning 2: I det klassiska spelet "masken" (snake) förflyttar sig en mask i jämna tidsintervall i den riktning
+//spelaren senast angav med piltangenterna.
+//Någonstans på banan finns ett äpple masken ska äta.
+//Det gäller för spelaren att ta sig dit utan att krocka med något hinder, eller sin egen svans.
+//När man tar äpplet blir masken längre och ett nytt äpple dyker upp på slumpvis vald plats på banan.
 
 //Implementera din egen version av spelet. Försök dela in koden i lämpliga funktioner.
 
-//Förslag: När du fått en första version av spelet att fungera, lägg till flera banor genom att hårdkoda in olika banlayout i olika 2D-arrayer. När man tagit ett visst antal äpplen på en bana så kommer man vidare till nästa.
+//Förslag: När du fått en första version av spelet att fungera,
+//lägg till flera banor genom att hårdkoda in olika banlayout i olika 2D-arrayer.
+//När man tagit ett visst antal äpplen på en bana så kommer man vidare till nästa.

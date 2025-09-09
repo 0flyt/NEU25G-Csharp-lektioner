@@ -227,13 +227,14 @@ Console.WriteLine();
 //Skriv en funktion ThrowDice() som returnerar ett slumpmässigt heltal 1-6.
 //Skriv en annan funktion ThrowMultipleDice(int n) som returnerar resultatet av att man slagit n tärningar.
 
-static int ThrowDice()
+static int ThrowDice(int r = 7)
 {
     Random random = new Random();
-    return random.Next(1, 7);
+    return random.Next(1, r);
 }
+Console.WriteLine(ThrowDice(100));
 
-static string ThrowMultipleDice(int n)
+static string ThrowMultipleDice(int n = 5)
 {
     int[] rolls = new int[n];
     for (int i = 0; i < n; i++)
@@ -243,16 +244,18 @@ static string ThrowMultipleDice(int n)
     string result = string.Join(", ", rolls);
     return result;
 }
-Console.WriteLine(ThrowMultipleDice(4));
+Console.WriteLine(ThrowMultipleDice(2));
 Console.WriteLine();
 
 
 //Extra utmaning: Lägg till en frivillig(optional) int på båda funktionerna, där man kan ange antal sidor på tärningen (default 6).
 
 //Tips: Kolla exempelkoden för Random.Next() för att få ut slumpmässiga heltal.
+
 //12. Rita en box
 
-//Skriv en funktion DrawBox(int width, int height). När man anropar funktionen ska den skriva ut en rektangel där de yttre tecknen består av ‘#’ och de inre av ‘-’.
+//Skriv en funktion DrawBox(int width, int height).
+//När man anropar funktionen ska den skriva ut en rektangel där de yttre tecknen består av ‘#’ och de inre av ‘-’.
 
 //Exempel: DrawBox(7, 4);
 
@@ -261,20 +264,101 @@ Console.WriteLine();
 //#-----#
 //#######
 
-//Extrauppgift: Uppdatera funktionen och lägg till parametrar left och top (för positionen på översta vänstra hörnet av boxen. Skriv en loop som printar ut rektanglar med random storlek och position på skärmen.
+//static void DrawBox(int length, int height)
+//{
+//    for (int i = 1; i <= height; i++)
+//    {
+//        for (int j = 1; j <= length; j++)
+//        {
+//            if (i == 1 || i == height || j == 1 || j == length)
+//                Console.Write("#");
+//            else
+//                Console.Write("-");
+//        }
+//        Console.WriteLine();
+//    }
+//}
+//DrawBox(7, 5);
+//Console.WriteLine();
 
-//Tips: Använd Console.SetCursorPosition(); för att flytta Cursorn, d.v.s var nästa tecken ska skrivas. Om du vill kan du även dölja cursorn genom att sätta Console.CursorVisible = false;
+//Extrauppgift: Uppdatera funktionen och lägg till parametrar left och top
+//(för positionen på översta vänstra hörnet av boxen.
+//Skriv en loop som printar ut rektanglar med random storlek och position på skärmen.
+
+//static void DrawBox(int length, int height, int left, int top)
+//{
+
+//    //for (int t = 1; t <= top; t++)
+//    //    Console.WriteLine();
+//    for (int i = 1; i <= height; i++)
+//    {
+//        Console.SetCursorPosition(left, top + i - 1);
+//        //for (int l = 1; l <= left; l++)
+//        //    Console.Write(" ");
+//        for (int j = 1; j <= length; j++)
+//        {
+//            if (i == 1 || i == height || j == 1 || j == length)
+//                Console.Write("#");
+//            else
+//                Console.Write("-");
+//        }
+
+//    }
+//}
+//DrawBox(7, 5, 10, 10);
+
+//Random random = new Random();
+
+//while (true)
+//{
+//    Console.CursorVisible = false;
+//    Thread.Sleep(500);
+//    int length = random.Next(3, 30);
+//    int height = random.Next(3, 30);
+//    int left = random.Next(0, Console.WindowWidth - length);
+//    int top = random.Next(0, Console.WindowHeight - height);
+
+//    DrawBox(length, height, left, top);
+//}
+
+
+
+//Tips: Använd Console.SetCursorPosition(); för att flytta Cursorn, d.v.s var nästa tecken ska skrivas.
+//Om du vill kan du även dölja cursorn genom att sätta Console.CursorVisible = false;
 
 //Tips: Använd Thread.Sleep(n); för att lägga in en fördröjning på n millisekunder innan nästa rektangel ritas ut.
+
 //13. Flytta runt ett @ med piltangenterna.
 
 //Låt oss skriva början till ett enkelt spel:
 
-//Använd DrawBox-funktionen i föregående uppgift för att rita en box på skärmen. Placera sedan ett @ i mitten av boxen. Om man använder piltangenterna ska man kunna flytta runt @. När den kommer till kanten av boxen så ska den inte kunna gå längre åt det hållet.
+//Använd DrawBox-funktionen i föregående uppgift för att rita en box på skärmen.
+//Placera sedan ett @ i mitten av boxen. Om man använder piltangenterna ska man kunna flytta runt @.
+//När den kommer till kanten av boxen så ska den inte kunna gå längre åt det hållet.
 
-//Tips: För att flytta @ behöver du skriva ‘-’ på dess tidigare position och ‘@’ på den nya positionen. Spara bredd och höjd på boxen så du vet när den ska stanna.
+//Tips: För att flytta @ behöver du skriva ‘-’ på dess tidigare position och ‘@’ på den nya positionen.
+//Spara bredd och höjd på boxen så du vet när den ska stanna.
 
 //Tips: Kolla upp Console.ReadKey(); och Console.KeyAvailable;
+
+static void DrawBox(int length, int height, int left, int top)
+{
+    for (int i = 1; i <= height; i++)
+    {
+        Console.SetCursorPosition(left, top + i - 1);
+
+        for (int j = 1; j <= length; j++)
+        {
+            if (i == 1 || i == height || j == 1 || j == length)
+                Console.Write("#");
+            else
+                Console.Write("-");
+        }
+
+    }
+}
+DrawBox(40, 20, 0, 0);
+
 //14.Masken
 
 //Skriv om DrawBox() så den istället returnerar en 2D-array av char med tecknen som den tidigare skrev ut på displayen. Man ska också kunna mata in en tredje parameter för antal slumpade ‘#’. Om man anger t.ex 5 så ska 5 stycken extra ‘#’ slumpas ut på random ställen inne i boxen.

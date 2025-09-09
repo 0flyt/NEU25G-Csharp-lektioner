@@ -122,6 +122,7 @@ static string[] NumberToWords(int numbers)
     return result;
 }
 Console.WriteLine(string.Join(", ",NumberToWords(6543)));
+Console.WriteLine();
 
 //9.Heltal till text
 
@@ -133,20 +134,116 @@ Console.WriteLine(string.Join(", ",NumberToWords(6543)));
 
 //Returvärde: "six thousand five hundred forty three"
 
+static string IntegerToText(ushort numbers)
+{
+    string myNumbers = numbers.ToString();
 
+    if (myNumbers.Length < 4)
+    {
+        string zeros = "";
+        for (int i = 0; i < 4 - myNumbers.Length; i++)
+        {
+            zeros += "0";
+        }
+        myNumbers = zeros + myNumbers;
+    }
+
+    string myThousand = myNumbers[0].ToString();
+    string myHundred = myNumbers[1].ToString();
+    string myTenth = "";
+    string mySingle = "";
+
+    if (myNumbers[2] == 1 && myNumbers[3] >= 0)
+    {
+        myTenth = myNumbers[2].ToString() + myNumbers[3].ToString();
+    }
+    else
+    {
+        myTenth = myNumbers[2].ToString();
+        mySingle = myNumbers[3].ToString();
+    }
+
+    string[] toThousandOrHundredOrSingle = new string[] { "", "one", "two", "three", "four", "five", "six", "seven", "eigth", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+    string[] toTenths = new string[] { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninty" };
+
+    string result = "";
+    if (myThousand != "0")
+    {
+        result += toThousandOrHundredOrSingle[int.Parse(myThousand)] + " thousand ";
+    }
+    if (myHundred != "0")
+    {
+        result += toThousandOrHundredOrSingle[int.Parse(myHundred)] + " hundred ";
+    }
+    if (myTenth.Length == 2)
+    {
+        result += toThousandOrHundredOrSingle[int.Parse(myTenth)];
+    }
+    else
+    {
+        result += toTenths[int.Parse(myTenth)] + " ";
+        result += toThousandOrHundredOrSingle[int.Parse(mySingle)];
+    }
+        return result;
+
+}
+Console.WriteLine(IntegerToText(6543));
+Console.WriteLine();
 
 //10.Hitta index för alla förekomster av ett givet tecken.
 
-//Skapa funktionen int[] IndexesOf(string text, char c) som söker igenom strängen text och returnerar en int[] med index till alla förekomster av c i text.
+//Skapa funktionen int[] IndexesOf(string text, char c) som söker igenom strängen text och returnerar en int[] med index
+//till alla förekomster av c i text.
 
 //Exempel:
 
 //IndexesOf("Hello World!", 'o');
 
 //Returvärde: { 4, 7}
+
+static int[] IndexOf(string text, char c)
+{
+    string myIndex = "";
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (text[i] == c)
+        {
+            myIndex += i;
+        }
+    }
+
+    int[] result = new int[myIndex.Length];
+    for (int i = 0; i < myIndex.Length; i++)
+    {
+        result[i] = int.Parse(myIndex[i].ToString());
+    }
+    return result;
+}
+Console.WriteLine(string.Join(", ", IndexOf("Hello World!", 'o')));
+Console.WriteLine();
+
 //11.Kasta tärning
 
-//Skriv en funktion ThrowDice() som returnerar ett slumpmässigt heltal 1-6. Skriv en annan funktion ThrowMultipleDice(int n) som returnerar resultatet av att man slagit n tärningar.
+//Skriv en funktion ThrowDice() som returnerar ett slumpmässigt heltal 1-6.
+//Skriv en annan funktion ThrowMultipleDice(int n) som returnerar resultatet av att man slagit n tärningar.
+
+static int ThrowDice()
+{
+    Random random = new Random();
+    return random.Next(1, 7);
+}
+
+static string ThrowMultipleDice(int n)
+{
+    int[] rolls = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        rolls[i] = ThrowDice();
+    }
+    string result = string.Join(", ", rolls);
+    return result;
+}
+Console.WriteLine(ThrowMultipleDice(4));
 
 //Extra utmaning: Lägg till en frivillig(optional) int på båda funktionerna, där man kan ange antal sidor på tärningen (default 6).
 

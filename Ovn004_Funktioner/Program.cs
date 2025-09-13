@@ -22,6 +22,7 @@
 //Anropa funktionen och skriv ut returvärdet.
 
 using System;
+using System.ComponentModel;
 
 static string FullName(string firstName, string lastName)
 {
@@ -415,9 +416,10 @@ Console.WriteLine();
 //Skriv sedan en annan funktion som tar och ritar ut arrayen på skärmen.
 //Fixa så man kan flytta runt @ med piltangenterna. Jämför positionen mot arrayen och gör så man inte kan gå på någon '#'.
 
-static char[,] DrawBox(int length, int height, int obstacles)
+static char[,] DrawBox(int length, int height, int obstacles = 0)
 {
     char[,] map = new char[height, length];
+    Random random = new Random();
 
     for (int i = 0; i < height; i++)
     {
@@ -428,45 +430,80 @@ static char[,] DrawBox(int length, int height, int obstacles)
                 map[i,j] = '#';
             }
             else
-            {
                 map[i, j] = '-';
-               
-                
-            }
         }
     }
 
     for (int o = 0; o < obstacles; o++)
     {
-        Random random = new Random();
+        
         int rndY = random.Next(1, height);
         int rndX = random.Next(1, length);
-        if (map[rndY, rndX] != '#')
-        {
+        if (map[rndY, rndX] != '#' && map[rndY, rndX] != '@')
             map[rndY, rndX] = '#';
-        }
         else
-        {
             o--;
-        }
-        
     }
         return map;
 }
 
-static void RenderGame(char[,] map)
+static void RenderGame(char[,] map, int snakePosX, int snakePosY)
 {
+    
     for (int y = 0; y < map.GetLength(0); y++)
     {
+        Console.SetCursorPosition(0, 1 + y - 1);
         for (int x = 0; x < map.GetLength(1); x++)
         {
-            Console.Write(map[y,x]);
+            if (x == snakePosX && y == snakePosY)
+            {
+                Console.Write('@');
+            }
+            else 
+                Console.Write(map[y, x]);
         }
-        Console.WriteLine();
     }
 }
 
-RenderGame(DrawBox(40, 20, 5));
+int mapXsize = 40;
+int mapYsize = 20;
+int obstacles = 5;
+int snakePosX = mapXsize / 2;
+int snakePosY = mapYsize / 2;
+char[,] map = DrawBox(mapXsize, mapYsize, obstacles);
+string direction = "";
+do
+{
+    Console.CursorVisible = false;
+    bool collide = false;
+    RenderGame(map, snakePosX, snakePosY);
+
+    if (Console.KeyAvailable)
+    {
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        direction = key.Key.ToString();
+    }
+    if (direction == "UpArrow") snakePosY--;
+    if (direction == "DownArrow") snakePosY++;
+    if (direction == "LeftArrow") snakePosX--;
+    if (direction == "RightArrow") snakePosX++;
+
+    if (map[snakePosY, snakePosX] == '#')
+    {
+        collide = true;
+    }
+
+    while (collide)
+    {
+        string endText = "You died!";
+        Thread.Sleep(250);
+        Console.SetCursorPosition((mapXsize / 2) - (endText.Length / 2), mapYsize / 2);
+        Console.Write(endText);
+        
+    }
+
+    Thread.Sleep(250);
+} while (true);
 
 //{0,0} {0,1} {0,2} {0,3} {0,4}
 //{1,0} {1,1} {1,2} {1,3} {1,4}
@@ -474,42 +511,6 @@ RenderGame(DrawBox(40, 20, 5));
 //{3,0} {3,1} {3,2} {3,3} {3,4}
 //{4,0} {4,1} {4,2} {4,3} {4,4}
 //{5,0} {5,1} {5,2} {5,3} {5,4}
-
-
-//int length = 40;
-//int height = 20;
-//int playerYPos = height / 2;
-//int playerXPos = length / 2;
-
-//while (true)
-//{
-
-//    Console.CursorVisible = false;
-//    Thread.Sleep(100);
-
-//    ConsoleKeyInfo key = Console.ReadKey();
-
-//    if (key.Key.ToString() == "W" && playerYPos != 2)
-//    {
-//        playerYPos--;
-//    }
-
-//    if (key.Key.ToString() == "S" && playerYPos != height - 1)
-//    {
-//        playerYPos++;
-//    }
-//    if (key.Key.ToString() == "A" && playerXPos != 2)
-//    {
-//        playerXPos--;
-//    }
-//    if (key.Key.ToString() == "D" && playerXPos != length - 1)
-//    {
-//        playerXPos++;
-//    }
-
-
-//    DrawBox(length, height, 0, 0, playerXPos, playerYPos);
-//}
 
 //Extra utmaning: Gör en "orm" av '@'.
 //När man flyttar positionen på @ så följer (t.ex) 5 andra @ efter i samma spår som man förflyttat sig.

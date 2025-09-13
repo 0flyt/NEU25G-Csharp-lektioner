@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L001-introduktion", "L001-introduktion\L001-introduktion.csproj", "{18325CA5-E1F0-4DF2-AD5D-C3DB22AACA57}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L008_Funktioner", "L008_Funktioner\L008_Funktioner.csproj", "{9A5E1F4B-46D1-47A5-A1DB-98C874FF021C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn004_Funktioner", "Ovn004_Funktioner\Ovn004_Funktioner.csproj", "{7D0E8125-DFEA-4EC6-A335-86B6018113CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn005_InförLabb1", "Ovn005_InförLabb1\Ovn005_InförLabb1.csproj", "{AF3FF98D-C2C7-41A5-9D4B-DE3721DDDA14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{7D0E8125-DFEA-4EC6-A335-86B6018113CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D0E8125-DFEA-4EC6-A335-86B6018113CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D0E8125-DFEA-4EC6-A335-86B6018113CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF3FF98D-C2C7-41A5-9D4B-DE3721DDDA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF3FF98D-C2C7-41A5-9D4B-DE3721DDDA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF3FF98D-C2C7-41A5-9D4B-DE3721DDDA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF3FF98D-C2C7-41A5-9D4B-DE3721DDDA14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

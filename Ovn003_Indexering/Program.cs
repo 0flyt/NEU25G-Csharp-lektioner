@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Threading.Channels;
-
-//Övningsuppgifter med indexering av strängar och arrayer
+﻿//Övningsuppgifter med indexering av strängar och arrayer
 //1. En bokstav på varje rad
 
 //Be användaren mata in en sträng. Skriv ut varje tecken i strängen på en egen rad.
@@ -16,11 +12,14 @@ using System.Threading.Channels;
 
 //Console.Write("Skriv något: ");
 //string myString = Console.ReadLine();
+//myString.ToCharArray().ToList().ForEach(Console.WriteLine);
 
 //foreach (char letter in myString)
 //{
 //    Console.WriteLine(letter);
 //}
+
+
 
 //2. Siffror till text
 
@@ -79,7 +78,7 @@ using System.Threading.Channels;
 
 //Console.Write("Skriv en text: ");
 //string myText = Console.ReadLine();
-
+//Console.WriteLine(new string(myText.Reverse().ToArray())); // linq exemple
 //for (int i = myText.Length - 1; i >= 0; i--)
 //{
 //    Console.Write(myText[i]);
@@ -142,18 +141,12 @@ using System.Threading.Channels;
 
 //foreach (char c in myString)
 //{
-//    bool isVokal = false;
-//    foreach (char v in vokaler)
-//    {
-//        if (c == v)
-//            isVokal = true;
-//    }
+//    bool isVokal = vokaler.Contains(c);
 
 //    if (!isVokal && char.IsLetter(c))
 //        Console.Write($"{c}o{c}");
 //    else
 //        Console.Write(c);
-//    isVokal = false;
 //}
 
 //5. Palindrom
@@ -169,19 +162,10 @@ using System.Threading.Channels;
 //string myString = Console.ReadLine().ToLower();
 //string reversedString = "";
 
-//for (int i = myString.Length -1; i >= 0; i--)
-//{
+//for (int i = myString.Length - 1; i >= 0; i--)
 //    reversedString += myString[i];
-//}
 
-//if (myString == reversedString)
-//{
-//    Console.WriteLine($"{myString} är ett palindrom");
-//}
-//else
-//{
-//    Console.WriteLine($"{myString} är INTE ett palidrom");
-//}
+//Console.WriteLine($"{myString} är {(myString == reversedString ? "ett palindrom" : "INTE ett palindrom")}");
 
 //6. Miniräknare
 

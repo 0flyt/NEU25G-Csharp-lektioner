@@ -1,7 +1,8 @@
 ﻿//Övningsuppgifter med funktioner
 //1. Slå ihop för- och efternamn - skriv ut
 
-//Skriv en funktion som tar två parametrar: firstName och lastName. Funktionen ska skriva ut hela namnet på skärmen. Testa genom att anropa funktionen med ditt namn.
+//Skriv en funktion som tar två parametrar: firstName och lastName. Funktionen ska skriva ut hela namnet på skärmen.
+//Testa genom att anropa funktionen med ditt namn.
 
 //Exempel:
 
@@ -21,26 +22,23 @@
 //Skriv om funktionen ovan så att den istället för att skriva ut namnet returnerar en string med hela namnet.
 //Anropa funktionen och skriv ut returvärdet.
 
-using System;
-using System.ComponentModel;
-
-static string FullName(string firstName, string lastName)
-{
-    return $"{firstName} {lastName}";
-}
-Console.WriteLine(FullName("Fredrik", "Johansson"));
-Console.WriteLine();
+//static string FullName(string firstName, string lastName)
+//{
+//    return $"{firstName} {lastName}";
+//}
+//Console.WriteLine(FullName("Fredrik", "Johansson"));
+//Console.WriteLine();
 
 //3. Kolla om stängen är längre än ett givet antal tecken.
 
 //Skriv en funktion som tar in en sträng och ett heltal. Om längden på strängen är större än heltalet returnera true, annars false.
 
-static bool IsStringLongerThanNumber(string myString, int myNumber)
-{
-    return myString.Length > myNumber ? true : false;
-}
-Console.WriteLine(IsStringLongerThanNumber("Hejsan", 7));
-Console.WriteLine();
+//static bool IsStringLongerThanNumber(string myString, int myNumber)
+//{
+//    return myString.Length > myNumber ? true : false;
+//}
+//Console.WriteLine(IsStringLongerThanNumber("Hejsan", 7));
+//Console.WriteLine();
 
 //4. Omvandla Celsius till Fahrenheit
 
@@ -48,23 +46,23 @@ Console.WriteLine();
 //Både in-parameter och returvärde ska vara av datatyp double.
 
 // since 9/5 = 1.8 we can say °F equals °C multiplied by 1.8, plus 32
-static double CelsiusToFahrenheit(double celsius)
-{
-    return celsius * 1.8 + 32;
-}
-Console.WriteLine(CelsiusToFahrenheit(30));
+//static double CelsiusToFahrenheit(double celsius)
+//{
+//    return celsius * 1.8 + 32;
+//}
+//Console.WriteLine(CelsiusToFahrenheit(30));
 
 //5. Lägg in bindesträck mellan tecken i en sträng
 
 //Skriv en funktion som tar in en sträng och returnerar en sträng med ett bindestreck mellan varje tecken.
 //T.ex om man skickar in “Fredrik” , så returnerar den “F-r-e-d-r-i-k”
 
-static string AddLines(string stringToAddLinesTo)
-{
-    string addedLines = string.Join("-", stringToAddLinesTo.ToCharArray());
-    return addedLines;
-}
-Console.WriteLine(AddLines("Fredrik"));
+//static string AddLines(string stringToAddLinesTo)
+//{
+//    string addedLines = string.Join("-", stringToAddLinesTo.ToCharArray());
+//    return addedLines;
+//}
+//Console.WriteLine(AddLines("Fredrik"));
 
 //6. Egen version av String.Join();
 
@@ -76,31 +74,31 @@ Console.WriteLine(AddLines("Fredrik"));
 
 //Returvärde: "Sverige->Norge->Finland"
 
-static string JoinOnArray(string AddBetween, params string[] ArrayToJoin)
-{
-    string result = "";
-    for (int i = 0; i < ArrayToJoin.Length; i++)
-    {
-        result += ArrayToJoin[i]+ (ArrayToJoin.Length == i + 1 ? "" : AddBetween);
-    }
-    return result;
-}
-Console.WriteLine(JoinOnArray("->", "Sverige", "Norge", "Finland"));
+//static string JoinOnArray(string AddBetween, params string[] ArrayToJoin)
+//{
+//    string result = "";
+//    for (int i = 0; i < ArrayToJoin.Length; i++)
+//    {
+//        result += ArrayToJoin[i]+ (ArrayToJoin.Length == i + 1 ? "" : AddBetween);
+//    }
+//    return result;
+//}
+//Console.WriteLine(JoinOnArray("->", "Sverige", "Norge", "Finland"));
 
 //7.Beräkna medelvärde av int-array
 
 //Skriv en funktion som tar en int[] in, och returnerar medelvärdet som en double.
 
-static double AverageValue(int[] ArrayWithValues)
-{
-    double result = 0.0;
-    foreach (var v in ArrayWithValues)
-    {
-        result += v;
-    }
-    return result / ArrayWithValues.Length;
-}
-Console.WriteLine(AverageValue([1, 5, 10]));
+//static double AverageValue(int[] ArrayWithValues)
+//{
+//    double result = 0.0;
+//    foreach (var v in ArrayWithValues)
+//    {
+//        result += v;
+//    }
+//    return result / ArrayWithValues.Length;
+//}
+//Console.WriteLine(AverageValue([1, 5, 10]));
 
 //8. Siffror till text
 
@@ -112,20 +110,20 @@ Console.WriteLine(AverageValue([1, 5, 10]));
 
 //Returvärde: { "sex", "fem", "fyra", "tre"}
 
-static string[] NumberToWords(int numbers)
-{
-    string numbersAsString = numbers.ToString();
-    string[] OneToTen = new string[] { "noll,", "ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio" };
-    string[] result = new string[numbersAsString.Length];
-    for (int i = 0; i < numbersAsString.Length; i++)
-    {
-        int digit = int.Parse(numbersAsString[i].ToString());
-        result[i] = OneToTen[digit];
-    }
-    return result;
-}
-Console.WriteLine(string.Join(", ",NumberToWords(6543)));
-Console.WriteLine();
+//static string[] NumberToWords(int numbers)
+//{
+//    string numbersAsString = numbers.ToString();
+//    string[] OneToTen = new string[] { "noll,", "ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio" };
+//    string[] result = new string[numbersAsString.Length];
+//    for (int i = 0; i < numbersAsString.Length; i++)
+//    {
+//        int digit = int.Parse(numbersAsString[i].ToString());
+//        result[i] = OneToTen[digit];
+//    }
+//    return result;
+//}
+//Console.WriteLine(string.Join(", ",NumberToWords(6543)));
+//Console.WriteLine();
 
 //9.Heltal till text
 
@@ -137,61 +135,61 @@ Console.WriteLine();
 
 //Returvärde: "six thousand five hundred forty three"
 
-static string IntegerToText(ushort numbers)
-{
-    string myNumbers = numbers.ToString();
+//static string IntegerToText(ushort numbers)
+//{
+//    string myNumbers = numbers.ToString();
 
-    if (myNumbers.Length < 4)
-    {
-        string zeros = "";
-        for (int i = 0; i < 4 - myNumbers.Length; i++)
-        {
-            zeros += "0";
-        }
-        myNumbers = zeros + myNumbers;
-    }
+//    if (myNumbers.Length < 4)
+//    {
+//        string zeros = "";
+//        for (int i = 0; i < 4 - myNumbers.Length; i++)
+//        {
+//            zeros += "0";
+//        }
+//        myNumbers = zeros + myNumbers;
+//    }
 
-    string myThousand = myNumbers[0].ToString();
-    string myHundred = myNumbers[1].ToString();
-    string myTenth = "";
-    string mySingle = "";
+//    string myThousand = myNumbers[0].ToString();
+//    string myHundred = myNumbers[1].ToString();
+//    string myTenth = "";
+//    string mySingle = "";
 
-    if (myNumbers[2] == 1 && myNumbers[3] >= 0)
-    {
-        myTenth = myNumbers[2].ToString() + myNumbers[3].ToString();
-    }
-    else
-    {
-        myTenth = myNumbers[2].ToString();
-        mySingle = myNumbers[3].ToString();
-    }
+//    if (myNumbers[2] == 1 && myNumbers[3] >= 0)
+//    {
+//        myTenth = myNumbers[2].ToString() + myNumbers[3].ToString();
+//    }
+//    else
+//    {
+//        myTenth = myNumbers[2].ToString();
+//        mySingle = myNumbers[3].ToString();
+//    }
 
-    string[] toThousandOrHundredOrSingle = new string[] { "", "one", "two", "three", "four", "five", "six", "seven", "eigth", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-    string[] toTenths = new string[] { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninty" };
+//    string[] toThousandOrHundredOrSingle = new string[] { "", "one", "two", "three", "four", "five", "six", "seven", "eigth", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+//    string[] toTenths = new string[] { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninty" };
 
-    string result = "";
-    if (myThousand != "0")
-    {
-        result += toThousandOrHundredOrSingle[int.Parse(myThousand)] + " thousand ";
-    }
-    if (myHundred != "0")
-    {
-        result += toThousandOrHundredOrSingle[int.Parse(myHundred)] + " hundred ";
-    }
-    if (myTenth.Length == 2)
-    {
-        result += toThousandOrHundredOrSingle[int.Parse(myTenth)];
-    }
-    else
-    {
-        result += toTenths[int.Parse(myTenth)] + " ";
-        result += toThousandOrHundredOrSingle[int.Parse(mySingle)];
-    }
-        return result;
+//    string result = "";
+//    if (myThousand != "0")
+//    {
+//        result += toThousandOrHundredOrSingle[int.Parse(myThousand)] + " thousand ";
+//    }
+//    if (myHundred != "0")
+//    {
+//        result += toThousandOrHundredOrSingle[int.Parse(myHundred)] + " hundred ";
+//    }
+//    if (myTenth.Length == 2)
+//    {
+//        result += toThousandOrHundredOrSingle[int.Parse(myTenth)];
+//    }
+//    else
+//    {
+//        result += toTenths[int.Parse(myTenth)] + " ";
+//        result += toThousandOrHundredOrSingle[int.Parse(mySingle)];
+//    }
+//        return result;
 
-}
-Console.WriteLine(IntegerToText(6543));
-Console.WriteLine();
+//}
+//Console.WriteLine(IntegerToText(6543));
+//Console.WriteLine();
 
 //10.Hitta index för alla förekomster av ett givet tecken.
 
@@ -204,51 +202,51 @@ Console.WriteLine();
 
 //Returvärde: { 4, 7}
 
-static int[] IndexOf(string text, char c)
-{
-    string myIndex = "";
-    for (int i = 0; i < text.Length; i++)
-    {
-        if (text[i] == c)
-        {
-            myIndex += i;
-        }
-    }
+//static int[] IndexOf(string text, char c)
+//{
+//    string myIndex = "";
+//    for (int i = 0; i < text.Length; i++)
+//    {
+//        if (text[i] == c)
+//        {
+//            myIndex += i;
+//        }
+//    }
 
-    int[] result = new int[myIndex.Length];
-    for (int i = 0; i < myIndex.Length; i++)
-    {
-        result[i] = int.Parse(myIndex[i].ToString());
-    }
-    return result;
-}
-Console.WriteLine(string.Join(", ", IndexOf("Hello World!", 'o')));
-Console.WriteLine();
+//    int[] result = new int[myIndex.Length];
+//    for (int i = 0; i < myIndex.Length; i++)
+//    {
+//        result[i] = int.Parse(myIndex[i].ToString());
+//    }
+//    return result;
+//}
+//Console.WriteLine(string.Join(", ", IndexOf("Hello World!", 'o')));
+//Console.WriteLine();
 
 //11.Kasta tärning
 
 //Skriv en funktion ThrowDice() som returnerar ett slumpmässigt heltal 1-6.
 //Skriv en annan funktion ThrowMultipleDice(int n) som returnerar resultatet av att man slagit n tärningar.
 
-static int ThrowDice(int r = 7)
-{
-    Random random = new Random();
-    return random.Next(1, r);
-}
-Console.WriteLine(ThrowDice(100));
+//static int ThrowDice(int r = 7)
+//{
+//    Random random = new Random();
+//    return random.Next(1, r);
+//}
+//Console.WriteLine(ThrowDice(100));
 
-static string ThrowMultipleDice(int n = 5)
-{
-    int[] rolls = new int[n];
-    for (int i = 0; i < n; i++)
-    {
-        rolls[i] = ThrowDice();
-    }
-    string result = string.Join(", ", rolls);
-    return result;
-}
-Console.WriteLine(ThrowMultipleDice(2));
-Console.WriteLine();
+//static string ThrowMultipleDice(int n = 5)
+//{
+//    int[] rolls = new int[n];
+//    for (int i = 0; i < n; i++)
+//    {
+//        rolls[i] = ThrowDice();
+//    }
+//    string result = string.Join(", ", rolls);
+//    return result;
+//}
+//Console.WriteLine(ThrowMultipleDice(2));
+//Console.WriteLine();
 
 
 //Extra utmaning: Lägg till en frivillig(optional) int på båda funktionerna, där man kan ange antal sidor på tärningen (default 6).
@@ -416,94 +414,97 @@ Console.WriteLine();
 //Skriv sedan en annan funktion som tar och ritar ut arrayen på skärmen.
 //Fixa så man kan flytta runt @ med piltangenterna. Jämför positionen mot arrayen och gör så man inte kan gå på någon '#'.
 
-static char[,] DrawBox(int length, int height, int obstacles = 0)
-{
-    char[,] map = new char[height, length];
-    Random random = new Random();
+//static char[,] DrawBox(int length, int height, int obstacles = 0)
+//{
+//    char[,] map = new char[height, length];
+//    Random random = new Random();
 
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < length; j++)
-        {
-            if (j == 0 || j == length - 1 || i == 0 || i == height - 1)
-            {
-                map[i,j] = '#';
-            }
-            else
-                map[i, j] = '-';
-        }
-    }
+//    for (int i = 0; i < height; i++)
+//    {
+//        for (int j = 0; j < length; j++)
+//        {
+//            if (j == 0 || j == length - 1 || i == 0 || i == height - 1)
+//            {
+//                map[i,j] = '#';
+//            }
+//            else
+//                map[i, j] = '-';
+//        }
+//    }
 
-    for (int o = 0; o < obstacles; o++)
-    {
-        
-        int rndY = random.Next(1, height);
-        int rndX = random.Next(1, length);
-        if (map[rndY, rndX] != '#' && map[rndY, rndX] != '@')
-            map[rndY, rndX] = '#';
-        else
-            o--;
-    }
-        return map;
-}
+//    for (int o = 0; o < obstacles; o++)
+//    {
 
-static void RenderGame(char[,] map, int snakePosX, int snakePosY)
-{
-    
-    for (int y = 0; y < map.GetLength(0); y++)
-    {
-        Console.SetCursorPosition(0, 1 + y - 1);
-        for (int x = 0; x < map.GetLength(1); x++)
-        {
-            if (x == snakePosX && y == snakePosY)
-            {
-                Console.Write('@');
-            }
-            else 
-                Console.Write(map[y, x]);
-        }
-    }
-}
+//        int rndY = random.Next(1, height);
+//        int rndX = random.Next(1, length);
+//        if (map[rndY, rndX] != '#' && map[rndY, rndX] != '@')
+//            map[rndY, rndX] = '#';
+//        else
+//            o--;
+//    }
+//        return map;
+//}
 
-int mapXsize = 40;
-int mapYsize = 20;
-int obstacles = 5;
-int snakePosX = mapXsize / 2;
-int snakePosY = mapYsize / 2;
-char[,] map = DrawBox(mapXsize, mapYsize, obstacles);
-string direction = "";
-do
-{
-    Console.CursorVisible = false;
-    bool collide = false;
-    RenderGame(map, snakePosX, snakePosY);
+//static void RenderGame(char[,] map, int snakePosX, int snakePosY)
+//{
 
-    if (Console.KeyAvailable)
-    {
-        ConsoleKeyInfo key = Console.ReadKey(true);
-        direction = key.Key.ToString();
-    }
-    if (direction == "UpArrow") snakePosY--;
-    if (direction == "DownArrow") snakePosY++;
-    if (direction == "LeftArrow") snakePosX--;
-    if (direction == "RightArrow") snakePosX++;
+//    for (int y = 0; y < map.GetLength(0); y++)
+//    {
+//        Console.SetCursorPosition(0, 1 + y - 1);
+//        for (int x = 0; x < map.GetLength(1); x++)
+//        {
+//            if (x == snakePosX && y == snakePosY)
+//            {
+//                Console.Write('@');
+//            }
+//            else 
+//                Console.Write(map[y, x]);
+//        }
+//    }
+//}
 
-    if (map[snakePosY, snakePosX] == '#')
-    {
-        collide = true;
-    }
+//int mapXsize = 40;
+//int mapYsize = 20;
+//int obstacles = 5;
+//int snakePosX = mapXsize / 2;
+//int snakePosY = mapYsize / 2;
+//char[,] map = DrawBox(mapXsize, mapYsize, obstacles);
+//string direction = "";
 
-    while (collide)
-    {
-        string endText = "You died!";
-        Thread.Sleep(250);
-        Console.SetCursorPosition((mapXsize / 2) - (endText.Length / 2), mapYsize / 2);
-        Console.Write(endText);
-        
-    }
+//do
+//{
+//    Console.CursorVisible = false;
+//    bool collide = false;
+//    RenderGame(map, snakePosX, snakePosY);
 
-    Thread.Sleep(250);
-} while (true);
+//    if (Console.KeyAvailable)
+//    {
+//        ConsoleKeyInfo key = Console.ReadKey(true);
+//        direction = key.Key.ToString();
+//    }
+//    if (direction == "UpArrow") snakePosY--;
+//    if (direction == "DownArrow") snakePosY++;
+//    if (direction == "LeftArrow") snakePosX--;
+//    if (direction == "RightArrow") snakePosX++;
+
+//    if (map[snakePosY, snakePosX] == '#')
+//    {
+//        collide = true;
+//    }
+
+
+
+//    while (collide)
+//    {
+//        string endText = "You died!";
+//        Thread.Sleep(250);
+//        Console.SetCursorPosition((mapXsize / 2) - (endText.Length / 2), mapYsize / 2);
+//        Console.Write(endText);
+
+//    }
+
+//    Thread.Sleep(250);
+//} while (true);
 
 //{0,0} {0,1} {0,2} {0,3} {0,4}
 //{1,0} {1,1} {1,2} {1,3} {1,4}

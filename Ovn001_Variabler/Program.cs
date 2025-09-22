@@ -53,7 +53,6 @@
 //        Console.WriteLine("Lösenordet får inte vara tomt eller mellanslag.");
 //        continue;
 //    }
-
 //    if (guess != password)
 //        Console.WriteLine("Fel! Försök igen.");
 //    else
@@ -146,7 +145,6 @@
 //12
 //Skriv in ett tal:
 //Medelvärde: 4
-
 
 //int result = 0;
 //Console.Write("Skriv in ett tal: ");

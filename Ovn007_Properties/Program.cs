@@ -207,9 +207,57 @@
 //på så vis att värdena tillsammans alltid är 100.0 d.v.s om man t.ex. sätter “Blue” till 8.5 och sedan läser av “Red”
 //så ska den returnera 91.5
 
+//RedAndBlue myValue = new();
+//myValue.Blue = 95.5;
+//Console.WriteLine($"Blue is: {myValue.Blue}");
+//Console.WriteLine($"Red is: {myValue.Red}\n");
+//myValue.Red = 55.0;
+//Console.WriteLine($"Blue is: {myValue.Blue}");
+//Console.WriteLine($"Red is: {myValue.Red}\n");
+//myValue.Blue = 0.5;
+//Console.WriteLine($"Blue is: {myValue.Blue}");
+//Console.WriteLine($"Red is: {myValue.Red}\n");
+//myValue.Red = 105;
+
 //class RedAndBlue
 //{
+//    private double _red = 100.0;
+//    private double _blue = 0.0;
 
+//	public double Red
+//	{
+//		get { return _red; }
+//		set 
+//		{ 
+//            if (value >= 0.0 && value <= 100.0)
+//            {
+//                _red = value;
+//                _blue = 100.0 - value;
+//            }
+//            else
+//            {
+//                Console.WriteLine("Outside 0.0 - 100.0");
+//            }
+
+//		}
+//	}
+//    public double Blue
+//    {
+//        get { return _blue; }
+//        set
+//        {
+//            if (value >= 0.0 && value <= 100.0)
+//            {
+//                _blue = value;
+//                _red = 100.0 - value;
+//            }
+//            else
+//            {
+//                Console.WriteLine("Outside 0.0 - 100.0");
+//            }
+
+//        }
+//    }
 //}
 
 //8. Temperatur
@@ -224,20 +272,224 @@
 
 //Det ska såklart fungera oavsett vilken enhet och värde man väljer på första raden, när instansen skapas.
 
+//Temperature t = new() { Farenheit = 100 };
+//Console.WriteLine($"Kelvin:   {t.Kelvin,10:f2}");
+//Console.WriteLine($"Celcius:  {t.Celsius,10:f2}");
+//Console.WriteLine($"Farenheit:{t.Farenheit,10:f2}");
+//class Temperature
+//{
+//    private double _celsius = 0;
+//    private double _kelvin = 0;
+//    private double _farenheit = 0;
+
+//	public double Celsius
+//	{
+//		get { return _celsius; }
+//		set 
+//        { 
+//            _celsius = value;
+//            _kelvin = value + 273.15;
+//            _farenheit = value * 1.8 + 32;
+//        }
+//	}
+//    public double Kelvin
+//    {
+//        get { return _kelvin; }
+//        set 
+//        { 
+//            _kelvin = value;
+//            _celsius = value - 273.15;
+//            _farenheit = value * 9 / 5 - 459.67;
+//        }
+//    }
+//    public double Farenheit
+//    {
+//        get { return _farenheit; }
+//        set 
+//        { 
+//            _farenheit = value;
+//            _celsius = (value - 32) / 1.8;
+//            _kelvin = (value + 459.67) * 5 / 9;
+//        }
+//    }
+//}
+
+
 //Tips: Omräkningsformler
 
 //Bonus: Om man sätter en ogiltig temperatur, kasta en ArgumentOutOfRangeException.
 //9. Bil 2
 
-//Skriv en ny klass som representerar en bil. Varje bil ska kunna ha en färg som representeras av en ConsoleColor, samt en längd. När man instansierar en bil så ska den få en random färg, och en random längd (mellan 3 och 5 meter). Instansiera 1000 bilar och spara i en array. Skapa en funktion som tar en array av bilar och returnerar den sammanlagda längden av alla gröna bilar.
+//Skriv en ny klass som representerar en bil. Varje bil ska kunna ha en färg som representeras av en ConsoleColor, samt en längd. När man instansierar en bil så ska den få en random färg, och en random längd (mellan 3 och 5 meter).
+//Instansiera 1000 bilar och spara i en array. Skapa en funktion som tar en array av bilar och returnerar den sammanlagda längden av alla gröna bilar.
+
 //10. Lägg till statisk metod
 
-//Lägg till en statisk metod på klassen i uppgift 9. Metoden ska ta en bil som inparameter och returnera en array med 10 bilar i samma färg som bilen man skickat in, men med olika längd.
+//Lägg till en statisk metod på klassen i uppgift 9.
+//Metoden ska ta en bil som inparameter och returnera en array med 10 bilar i samma färg som bilen man skickat in, men med olika längd.
+
+
+//Car[] myCars = new Car[1000];
+//for (int i = 0; i < myCars.Length; i++)
+//{
+//	myCars[i] = new Car();
+//}
+//Car.GreenCars(myCars);
+//Console.WriteLine($"Picking one car with the color: {myCars[10].Color}");
+//Car choosenCar = myCars[10];
+//Car[] tenCars = Car.MakeTenCarsWithSameColor(choosenCar);
+//foreach (var car in tenCars)
+//{
+//    Console.WriteLine($"Color: {car.Color}. Size: {car.Size}");
+//}
+
+using System.Xml.Serialization;
+
+//Car myCar = new Car();
+//Console.WriteLine($"Min bil: Color {myCar.Color}, Size {myCar.Size}, Speed {myCar.Speed} Km/H, Distance {myCar.Distance}");
+//Console.WriteLine($"Modulus test: {1 % 50}");
+//myCar.DriveForOneHour();
+//myCar.GetGraph();
+Game();
+
+static void Game()
+{
+	Car[] tenCars = new Car[10];
+	for (int i = 0; i < tenCars.Length; i++)
+	{
+		tenCars[i] = new Car();
+	}
+    bool race = true;
+    do
+	{
+		Thread.Sleep(500);
+        Console.CursorVisible = false;
+        Console.SetCursorPosition(0, 0);
+        foreach (var car in tenCars)
+		{
+			car.DriveForOneHour();
+            Console.Write($"Car{car.Speed}:\t");
+            car.GetGraph();
+            
+		}
+		if (tenCars.Any(a => a.Distance > 1000))
+		{
+			race = false;
+            Console.WriteLine("We got a winner!");
+		}
+	} while (race);
+}
+
+
+class Car
+{
+	private static Random random = new();
+	private ConsoleColor _color;
+	private int _size;
+	private int _speed;
+	private int _distance = 0;
+
+	public Car()
+	{
+		var colors = new[] 
+		{  
+			ConsoleColor.Blue, 
+			ConsoleColor.Cyan, 
+			ConsoleColor.Green, 
+			ConsoleColor.Magenta, 
+			ConsoleColor.Red, 
+			ConsoleColor.White,
+			ConsoleColor.Yellow, 
+			ConsoleColor.DarkBlue,
+			ConsoleColor.DarkCyan,
+			ConsoleColor.DarkGreen,
+			ConsoleColor.DarkMagenta,
+			ConsoleColor.DarkRed,
+			ConsoleColor.DarkGray,
+			ConsoleColor.DarkYellow,
+		};
+		_color = colors[random.Next(colors.Length)];
+
+		_size = random.Next(3, 6);
+
+		_speed = random.Next(60, 241);
+    }
+
+	public static void GreenCars(Car[] cars)
+	{
+		Console.WriteLine(cars.Where(w => w.Color == ConsoleColor.Green)
+			.Sum(s => s.Size));
+	}
+
+	public static Car[] MakeTenCarsWithSameColor(Car myCar)
+	{
+		Car[] TenCarsWithSameColor = new Car[10];
+		for (int i = 0; i < TenCarsWithSameColor.Length; i++)
+		{
+			TenCarsWithSameColor[i] = new Car() { _color = myCar._color, _size = random.Next(3, 6) };
+		}
+
+		return TenCarsWithSameColor;
+	}
+
+	public void DriveForOneHour()
+	{
+		_distance += this.Speed / 10;
+	}
+
+	public void GetGraph()
+	{
+		int map = 20;
+		Console.Write("|");
+        for (int i = 0; i < map; i++)
+		{
+        
+            int carPosition = Math.Min(_distance / 50, 20);
+             if (i == carPosition)
+            {
+                Console.ForegroundColor = _color;
+                Console.Write("x");
+                Console.ResetColor();
+            }
+			else 
+			{
+                Console.Write("-");
+            };
+        }
+        Console.Write("|");
+        Console.Write($"\t{_distance} Km\n");
+	}
+
+	public ConsoleColor Color
+	{
+		get { return _color; }
+	}
+
+	public int Size
+	{
+		get { return _size; }
+	}
+    public int Speed
+    {
+        get { return _speed; }
+    }
+    public int Distance
+    {
+        get { return _distance; }
+		set { _distance += value; }
+    }
+}
+
 //11. Simulering
 
-//Uppdatera konstruktorn på klassen i uppgift 9 (och 10) så att bilen även får en random hastighet (mellan 60 och 240 km/h). Skriv en metod DriveForOneHour() som uppdaterar en property Distance med total körsträcka. Distance ska alltså initieras på 0, och sedan ökar för varje gång man anropar DriveForOneHour(). Lägg sedan till en metod GetGraph() som returnerar en string på 20 tecken som representerar en körsträcka på 1000 mil och visar bilens position enligt exempel: “| ------x---------- -|”. (‘x’ är alltså bilens position mellan start och mål (1000 mil).
+//Uppdatera konstruktorn på klassen i uppgift 9 (och 10) så att bilen även får en random hastighet (mellan 60 och 240 km/h).
+//Skriv en metod DriveForOneHour() som uppdaterar en property Distance med total körsträcka.
+//Distance ska alltså initieras på 0, och sedan ökar för varje gång man anropar DriveForOneHour().
+//Lägg sedan till en metod GetGraph() som returnerar en string på 20 tecken som representerar en körsträcka på 1000 mil och visar bilens position
+//enligt exempel: “| ------x---------- -|”. (‘x’ är alltså bilens position mellan start och mål (1000 mil).
 
-//Skriv sedan ett program som simulerar att 10 bilar åker 1000 mil i olika hastighet där varje bils position, samt dess exakta körda distans (i text) uppdateras en gång i sekunden. (En sekund i simuleringen motsvarar alltså en timma i verkligheten).
+//Skriv sedan ett program som simulerar att 10 bilar åker 1000 mil i olika hastighet där varje bils position, samt dess exakta körda distans
+//(i text) uppdateras en gång i sekunden. (En sekund i simuleringen motsvarar alltså en timma i verkligheten).
 
 //hint: Thread.Sleep(1000);
 

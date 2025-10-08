@@ -1,4 +1,41 @@
 ﻿
+var numbers = new int[] { 4, 6, 97, -15, 13 };
+
+Array.Sort(numbers);
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}
+
+var cats = new Cat[]
+{
+    new Cat("Pelle", 4),
+    new Cat("Måns", 5),
+    new Cat("Tiger", 2),
+    new Cat("Bill", 2),
+    new Cat("Bull", 3),
+
+};
+
+Array.Sort(cats);
+
+foreach (var cat in cats)
+{
+    Console.WriteLine(cat.Name);
+}
+
+//Console.WriteLine();
+
+//static void BadSort(IComparable[] comparables)
+//{
+//    if (comparables[0].CompareTo(comparables[1]) < 0)
+//    {
+//        IComparable temp = comparables[0];
+//        comparables[0] = comparables[1];
+//        comparables[1] = temp;
+//    }
+//}
+
 
 //using (var reader = new StreamReader("myFile.txt"))
 //{
@@ -13,7 +50,7 @@
 
 //Console.WriteLine("The end!");
 
-var myCat = new Cat("Pelle");
+var myCat = new Cat("Pelle", 5);
 //myCat.Collect();
 
 ICollectable collectable = myCat;
@@ -60,20 +97,27 @@ class Inventory
 class Animal
 {
     public string Name { get; set; }
+    public int Age { get; set; }
 
-    public Animal(string name)
+    public Animal(string name, int age)
     {
         Name = name;
+        Age = age;
     }
 }
 
-class Cat : Animal, IDisposable, ICollectable
+class Cat : Animal, IDisposable, ICollectable, IComparable<Cat>
 {
-    public Cat(string name) : base(name) { }
+    public Cat(string name, int age) : base(name, age) { }
 
     public void Collect()
     {
         Console.WriteLine($"{Name} was collected!");
+    }
+
+    public int CompareTo(Cat? other)
+    {
+        return this.Name.CompareTo(other.Name);
     }
 
     public void Dispose()

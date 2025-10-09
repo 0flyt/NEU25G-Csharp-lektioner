@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L034_Anonymous_types", "L03
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L035_Interface", "L035_Interface\L035_Interface.csproj", "{31DBF907-A49E-4661-9DA3-073C66BA1C88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn009_Delegat", "Ovn009_Delegat\Ovn009_Delegat.csproj", "{2ABA186F-31FC-4811-8A1E-603A8237E947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,10 @@ Global
 		{31DBF907-A49E-4661-9DA3-073C66BA1C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31DBF907-A49E-4661-9DA3-073C66BA1C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31DBF907-A49E-4661-9DA3-073C66BA1C88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABA186F-31FC-4811-8A1E-603A8237E947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABA186F-31FC-4811-8A1E-603A8237E947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABA186F-31FC-4811-8A1E-603A8237E947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABA186F-31FC-4811-8A1E-603A8237E947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -135,17 +135,6 @@ Func<int, bool> even = x => x % 2 == 0;
 
 static int[] ArrayInt(int[] iArray, Func<int, bool> funcInt)
 {
-    //List<int> temp = new List<int>();
-    //foreach (var i in iArray)
-    //{
-    //    if (funcInt(i))
-    //    {
-    //        temp.Add(i);
-    //    }
-    //}
-    //int[] result = new int[temp.Count];
-    //result = temp.ToArray();
-    //return result;
     return iArray.Where(funcInt).ToArray();
 }
 
@@ -154,26 +143,12 @@ int[] myIntArray = new int[]
     4,7,-2,23,-80, 3,1,2,8, 11,19
 };
 
-Console.WriteLine("\nNegative: ");
-foreach (var item in ArrayInt(myIntArray, negativeDigits))
-{
-    Console.WriteLine(item);
-}
-//ArrayInt(myIntArray, negativeDigits);
+Console.WriteLine($"\nNegative numbers: {String.Join(", ", ArrayInt(myIntArray, negativeDigits))}");
 
-Console.WriteLine("\nBetween 10 - 20: ");
-foreach (var item in ArrayInt(myIntArray, between10and20))
-{
-    Console.WriteLine(item);
-}
-//ArrayInt(myIntArray, between10and20);
+Console.WriteLine($"\nBetween 10-20: {String.Join(", ", ArrayInt(myIntArray, between10and20))}");
 
-Console.WriteLine("\nEven: ");
-foreach (var item in ArrayInt(myIntArray, even))
-{
-    Console.WriteLine(item);
-}
-//ArrayInt(myIntArray, even);
+Console.WriteLine($"\nEven numbers: {String.Join(", ",ArrayInt(myIntArray, even))}");
+
 
 
 //9. Filtrera array (till ny array)

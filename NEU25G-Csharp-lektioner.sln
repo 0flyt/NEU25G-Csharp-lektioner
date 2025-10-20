@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L037_Yield_return", "L037_Y
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovn010_LINQ", "Ovn010_LINQ\Ovn010_LINQ.csproj", "{5CFCD8F0-9C97-4815-906A-CC90C59F3DF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L038_PLINQ", "L038_PLINQ\L038_PLINQ.csproj", "{51CC48BE-6325-4A14-B827-4E1914EF0BEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +263,10 @@ Global
 		{5CFCD8F0-9C97-4815-906A-CC90C59F3DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CFCD8F0-9C97-4815-906A-CC90C59F3DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CFCD8F0-9C97-4815-906A-CC90C59F3DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51CC48BE-6325-4A14-B827-4E1914EF0BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51CC48BE-6325-4A14-B827-4E1914EF0BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51CC48BE-6325-4A14-B827-4E1914EF0BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51CC48BE-6325-4A14-B827-4E1914EF0BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

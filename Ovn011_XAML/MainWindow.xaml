@@ -1,0 +1,53 @@
+﻿<Window x:Class="Ovn011_XAML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ovn011_XAML"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#EEE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock 
+            Grid.Column="1"
+            x:Name="TitleText"
+            Text=""
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            />
+        <StackPanel
+            Margin="20"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            >
+            <TextBlock Text="Uppgifter" FontSize="20" Margin="0 0 0 10" />
+            <Button Content="Uppgift 1 - Knapp" Margin="0 5" Click="OpenTask1" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 2 - Två hörnknappar" Margin="0 5" Click="OpenTask2" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 3 - Stack med tre knappar" Margin="0 5" Click="OpenTask3" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 4 - Liggande stack med tre knappar" Margin="0 5" Click="OpenTask4" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 5 - Formulär" Margin="0 5" Click="OpenTask5" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 6 - Siffror i rutnät" Margin="0 5" Click="OpenTask6" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 7 - Formulär i rutnät" Margin="0 5" Click="OpenTask7" HorizontalContentAlignment="Left"/>
+            <Button Content="Uppgift 8 - Formulär för studenter" Margin="0 5" Click="OpenTask8" HorizontalContentAlignment="Left"/>
+        </StackPanel>
+        <Frame 
+            x:Name="ContentFrame" 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Background="White" 
+            NavigationUIVisibility="Hidden"
+            
+            >
+            
+        </Frame>
+
+    </Grid>
+</Window>

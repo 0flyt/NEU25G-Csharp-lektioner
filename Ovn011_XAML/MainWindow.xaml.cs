@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ovn011_XAML.Tasks.WPF;
 
 namespace Ovn011_XAML
 {
@@ -20,70 +21,29 @@ namespace Ovn011_XAML
         {
             InitializeComponent();
         }
-        private void OpenTask1(object sender, RoutedEventArgs e)
+
+        private void TreeView_SelectedChange(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            
-            ContentFrame.Navigate(new Task01());
-            if (sender is Button button)
+            if (NavigationTree.SelectedItem is TreeViewItem item && item.Tag != null)
             {
-                TitleText.Text = button.Content.ToString();
+                string tag = item.Tag.ToString();
+                TitleText.Text = item.Header.ToString();
+
+                switch (tag)
+                {
+                    case "XAML01": ContentFrame.Navigate(new Task01()); break;
+                    case "XAML02": ContentFrame.Navigate(new Task02()); break;
+                    case "XAML03": ContentFrame.Navigate(new Task03()); break;
+                    case "XAML04": ContentFrame.Navigate(new Task04()); break;
+                    case "XAML05": ContentFrame.Navigate(new Task05()); break;
+                    case "XAML06": ContentFrame.Navigate(new Task06()); break;
+                    case "XAML07": ContentFrame.Navigate(new Task07()); break;
+                    case "XAML08": ContentFrame.Navigate(new Task08()); break;
+
+                    case "WPF01": ContentFrame.Navigate(new Task09()); break;
+                }
             }
         }
-        private void OpenTask2(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task02());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask3(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task03());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask4(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task04());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask5(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task05());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask6(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task06());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask7(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task07());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
-        private void OpenTask8(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(new Task08());
-            if (sender is Button button)
-            {
-                TitleText.Text = button.Content.ToString();
-            }
-        }
+        
     }
 }

@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#EEE">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -22,22 +23,34 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             />
-        <StackPanel
-            Margin="20"
+        <TreeView 
+            x:Name="NavigationTree"
+            SelectedItemChanged="TreeView_SelectedChange"
             Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            Margin="10 0"
+            Padding="0 0 20 0"
             >
-            <TextBlock Text="Uppgifter" FontSize="20" Margin="0 0 0 10" />
-            <Button Content="Uppgift 1 - Knapp" Margin="0 5" Click="OpenTask1" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 2 - Två hörnknappar" Margin="0 5" Click="OpenTask2" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 3 - Stack med tre knappar" Margin="0 5" Click="OpenTask3" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 4 - Liggande stack med tre knappar" Margin="0 5" Click="OpenTask4" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 5 - Formulär" Margin="0 5" Click="OpenTask5" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 6 - Siffror i rutnät" Margin="0 5" Click="OpenTask6" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 7 - Formulär i rutnät" Margin="0 5" Click="OpenTask7" HorizontalContentAlignment="Left"/>
-            <Button Content="Uppgift 8 - Formulär för studenter" Margin="0 5" Click="OpenTask8" HorizontalContentAlignment="Left"/>
-        </StackPanel>
+            <TreeViewItem Header="XAML">
+                <TreeViewItem Header="Uppgift 1 - Knapp" Tag="XAML01" />
+                <TreeViewItem Header="Uppgift 2 - Två hörnknappar" Tag="XAML02" />
+                <TreeViewItem Header="Uppgift 3 - Stack med tre knappar" Tag="XAML03" />
+                <TreeViewItem Header="Uppgift 4 - Liggande stack med tre knappar" Tag="XAML04" />
+                <TreeViewItem Header="Uppgift 5 - Formulär" Tag="XAML05" />
+                <TreeViewItem Header="Uppgift 6 - Siffror i rutnät" Tag="XAML06" />
+                <TreeViewItem Header="Uppgift 7 - Formulär i rutnät" Tag="XAML07" />
+                <TreeViewItem Header="Uppgift 8 - Formulär för studenter" Tag="XAML08" />
+            </TreeViewItem>
+            <TreeViewItem Header="WPF">
+                <TreeViewItem Header="Uppgift 1 - Klickräknare" Tag="WPF01" />
+                <TreeViewItem Header="Uppgift 2 - Knapp" />
+                <TreeViewItem Header="Uppgift 3 - Knapp" />
+                <TreeViewItem Header="Uppgift 4 - Knapp" />
+                <TreeViewItem Header="Uppgift 5 - Knapp" />
+                <TreeViewItem Header="Uppgift 6 - Knapp" />
+                <TreeViewItem Header="Uppgift 7 - Knapp" />
+                <TreeViewItem Header="Uppgift 8 - Knapp" />
+            </TreeViewItem>
+        </TreeView>
         <Frame 
             x:Name="ContentFrame" 
             Grid.Column="1" 

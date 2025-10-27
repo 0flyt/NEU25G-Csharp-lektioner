@@ -16,21 +16,36 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <Rectangle
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Height="1"
+            VerticalAlignment="Top"
+            Fill="#ddd"
+        />
+
         <TextBlock 
             Grid.Column="1"
             x:Name="TitleText"
-            Text=""
+            FontSize="20"
+            FontWeight="SemiBold"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            />
+        />
+        
         <TreeView 
             x:Name="NavigationTree"
             SelectedItemChanged="TreeView_SelectedChange"
+            Background="#fafafa"
+            BorderThickness="0"
             Grid.Row="1"
-            Margin="10 0"
+            Margin="10 0 10 10"
             Padding="0 0 20 0"
+            
+            
             >
-            <TreeViewItem Header="XAML">
+            <TreeViewItem Header="XAML" Cursor="Hand">
                 <TreeViewItem Header="Uppgift 1 - Knapp" Tag="XAML01" />
                 <TreeViewItem Header="Uppgift 2 - Två hörnknappar" Tag="XAML02" />
                 <TreeViewItem Header="Uppgift 3 - Stack med tre knappar" Tag="XAML03" />
@@ -40,24 +55,26 @@
                 <TreeViewItem Header="Uppgift 7 - Formulär i rutnät" Tag="XAML07" />
                 <TreeViewItem Header="Uppgift 8 - Formulär för studenter" Tag="XAML08" />
             </TreeViewItem>
-            <TreeViewItem Header="WPF">
+            <TreeViewItem Header="WPF" Cursor="Hand">
                 <TreeViewItem Header="Uppgift 1 - Klickräknare" Tag="WPF01" />
-                <TreeViewItem Header="Uppgift 2 - Knapp" />
-                <TreeViewItem Header="Uppgift 3 - Knapp" />
-                <TreeViewItem Header="Uppgift 4 - Knapp" />
+                <TreeViewItem Header="Uppgift 2 - Räkna upp och ner" Tag="WPF02" />
+                <TreeViewItem Header="Uppgift 3 - Slider" Tag="WPF03" />
+                <!--<TreeViewItem Header="Uppgift 4 - Knapp" />
                 <TreeViewItem Header="Uppgift 5 - Knapp" />
                 <TreeViewItem Header="Uppgift 6 - Knapp" />
                 <TreeViewItem Header="Uppgift 7 - Knapp" />
-                <TreeViewItem Header="Uppgift 8 - Knapp" />
+                <TreeViewItem Header="Uppgift 8 - Knapp" />-->
             </TreeViewItem>
         </TreeView>
+
+
         <Frame 
             x:Name="ContentFrame" 
             Grid.Column="1" 
             Grid.Row="1" 
-            Background="White" 
+            Background="#fafafa" 
             NavigationUIVisibility="Hidden"
-            
+            Margin="0 0 10 10"
             >
             
         </Frame>

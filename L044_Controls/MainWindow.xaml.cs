@@ -23,15 +23,35 @@ namespace L044_Controls
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            label.Content = textBox.Text.ToUpper();
+            if (copyButton is null) return;
+            copyButton.IsEnabled = textBox.Text.Length > 0;
         }
 
-        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (radioButtonB.IsChecked == true)
             {
-                label.Content = textBox.Text;
+                textBoxen.Text += Environment.NewLine + textBox.Text;
             }
+            else
+            {
+                textBoxen.Text = textBox.Text;
+
+            }
+
+            comboBox.Items.Add(textBox.Text);
         }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            copyButton.Visibility = checkBox.IsChecked == true ? Visibility.Hidden : Visibility.Visible;
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            label.Content = (comboBox.SelectedItem as ComboBoxItem)?.Content;
+        }
+
+
     }
 }

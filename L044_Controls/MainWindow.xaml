@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:L044_Controls"
         mc:Ignorable="d"
-        FontSize="20"
+        
         d:Height="400" d:Width="400"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -18,28 +18,71 @@
                 Margin="10 10 0 0"
             />
                 <!--TextChanged="textBox_TextChanged"-->
+                <!--KeyDown="textBox_KeyDown"-->
             <TextBox
                 x:Name="textBox"
-                KeyDown="textBox_KeyDown"
-                Text="Fredrik"
+                TextChanged="textBox_TextChanged"
+                Text=""
                 Margin="10 10 0 0"
             />
 
             <TextBox
+                x:Name="textBoxen"
                 AcceptsReturn="True"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto"
                 Width="200"
                 Margin="10 10 0 0"
                 Height="100"
+                IsEnabled="False"
             />
 
             <Button
-                x:Name="button"
-                Content="Click here!"
+                x:Name="copyButton"
+                Content="Copy text"
                 Margin="10 10 0 0"
-                
+                Click="button_Click"
+                IsEnabled="False"
             />
+
+            <CheckBox 
+                x:Name="checkBox"
+                Content="Hide button"
+                Margin="10 10 0 0"
+                Click="CheckBox_Click"
+            />
+
+            <Label
+                Content="Copy mode:"
+                Margin="10 10 0 0"
+            />
+            
+            <RadioButton 
+                x:Name="radioButtonA"
+                GroupName="CopyMode"
+                IsChecked="True"
+                Margin="10 0 0 0"
+                Content="Overwrite"
+            />
+            
+            <RadioButton 
+                x:Name="radioButtonB"
+                GroupName="CopyMode"
+                Margin="10 0 0 0"
+                Content="Append"
+            />
+
+            <ComboBox
+                x:Name="comboBox"
+                Margin="10 10 0 0"
+                SelectedIndex="0"
+                ToolTip="Select your language"
+                SelectionChanged="comboBox_SelectionChanged"
+            >
+                <ComboBoxItem Content="English" />
+                <ComboBoxItem Content="Swedish" />
+                <ComboBoxItem Content="Spanish" />
+            </ComboBox>
         </WrapPanel>
     </Grid>
 </Window>

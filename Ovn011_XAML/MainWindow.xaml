@@ -64,6 +64,7 @@
                 <TreeViewItem Header="Uppgift 6 - Formulär för studenter" Tag="WPF06" />
                 <TreeViewItem Header="Uppgift 7 - Lägg till och ta bort studenter + meny" Tag="WPF07" />
                 <TreeViewItem Header="Uppgift 8 - Siffror i rutnät" Tag="WPF08" />
+                <TreeViewItem Header="Uppgift 9 - Siffror i rutnät med dynamisk storlek" Tag="WPF09" />
             </TreeViewItem>
         </TreeView>
 

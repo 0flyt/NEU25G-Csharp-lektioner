@@ -31,6 +31,7 @@ namespace Ovn011_XAML
 
                 switch (tag)
                 {
+                    // XAML
                     case "XAML01": ContentFrame.Navigate(new Task01()); break;
                     case "XAML02": ContentFrame.Navigate(new Task02()); break;
                     case "XAML03": ContentFrame.Navigate(new Task03()); break;
@@ -40,6 +41,7 @@ namespace Ovn011_XAML
                     case "XAML07": ContentFrame.Navigate(new Task07()); break;
                     case "XAML08": ContentFrame.Navigate(new Task08()); break;
 
+                    // WPF
                     case "WPF01": ContentFrame.Navigate(new Task09()); break;
                     case "WPF02": ContentFrame.Navigate(new Task10()); break;
                     case "WPF03": ContentFrame.Navigate(new Task11()); break;
@@ -48,6 +50,7 @@ namespace Ovn011_XAML
                     case "WPF06": ContentFrame.Navigate(new Task14()); break;
                     case "WPF07": ContentFrame.Navigate(new Task15()); break;
                     case "WPF08": ContentFrame.Navigate(new Task16()); break;
+                    case "WPF09": ContentFrame.Navigate(new Task17()); break;
                 }
             }
         }

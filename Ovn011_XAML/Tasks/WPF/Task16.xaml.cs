@@ -51,7 +51,12 @@ namespace Ovn011_XAML.Tasks.WPF
             {
                 for (int j = 0; j < y; j++)
                 {
-                    var label = new Label { Content = $"{count}", VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center };
+                    var label = new Label 
+                    { 
+                        Content = $"{count}",
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center
+                    };
                     
                     Grid.SetColumn(label, j);
                     Grid.SetRow(label, i);

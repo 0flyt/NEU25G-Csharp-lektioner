@@ -1,0 +1,63 @@
+﻿<Page x:Class="Ovn011_XAML.Tasks.WPF.Task15"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ovn011_XAML.Tasks.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Task15">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+            
+        <Menu Grid.ColumnSpan="4">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="MenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Add student" Click="laggTill_Button_Click" />
+                <MenuItem x:Name="menuRemove" Header="Remove student" Click="taBort_Button_Click" />
+            </MenuItem>
+        </Menu>
+        
+        
+        <Label Grid.Column="1" Grid.Row="1" Content="Students:" VerticalAlignment="Bottom" />
+        <ListBox Grid.Column="1" Grid.Row="2" x:Name="elevLista" SelectionChanged="elevLista_SelectionChanged" Width="150">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add Student" Click="laggTill_Button_Click" />
+                    <MenuItem x:Name="contextRemove" Header="Remove Student" Click="taBort_Button_Click" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+
+            <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Margin="10 0">
+                <Label Content="Firstname:" />
+                <TextBox x:Name="firstName" TextChanged="firstName_TextChanged" Margin="0 0 0 10" />
+
+                <Label Content="Lastname:" />
+                <TextBox x:Name="lastName" TextChanged="lastName_TextChanged" Margin="0 0 0 10" />
+
+                <Label Content="Email:" />
+                <TextBox x:Name="eMail" TextChanged="eMail_TextChanged" Margin="0 0 0 10" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="taBort_Button" Click="taBort_Button_Click" Content="Ta bort" Margin="0 0 10 0" Padding="4 0" />
+                    <Button x:Name="laggTill_Button" Click="laggTill_Button_Click" Content="Lägg till" Padding="4 0" />
+                </StackPanel>
+            </StackPanel>
+    </Grid>
+</Page>

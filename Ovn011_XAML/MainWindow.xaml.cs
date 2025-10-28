@@ -46,6 +46,8 @@ namespace Ovn011_XAML
                     case "WPF04": ContentFrame.Navigate(new Task12()); break;
                     case "WPF05": ContentFrame.Navigate(new Task13()); break;
                     case "WPF06": ContentFrame.Navigate(new Task14()); break;
+                    case "WPF07": ContentFrame.Navigate(new Task15()); break;
+                    case "WPF08": ContentFrame.Navigate(new Task16()); break;
                 }
             }
         }

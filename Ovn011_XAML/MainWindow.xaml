@@ -62,8 +62,8 @@
                 <TreeViewItem Header="Uppgift 4 - Label med valbar slider" Tag="WPF04" />
                 <TreeViewItem Header="Uppgift 5 - Gemensam slider för position" Tag="WPF05" />
                 <TreeViewItem Header="Uppgift 6 - Formulär för studenter" Tag="WPF06" />
-                <!--<TreeViewItem Header="Uppgift 7 - Knapp" />
-                <TreeViewItem Header="Uppgift 8 - Knapp" />-->
+                <TreeViewItem Header="Uppgift 7 - Lägg till och ta bort studenter + meny" Tag="WPF07" />
+                <TreeViewItem Header="Uppgift 8 - Siffror i rutnät" Tag="WPF08" />
             </TreeViewItem>
         </TreeView>
 

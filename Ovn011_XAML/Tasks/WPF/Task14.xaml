@@ -1,0 +1,35 @@
+﻿<Page x:Class="Ovn011_XAML.Tasks.WPF.Task14"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ovn011_XAML.Tasks.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Task14">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Students:" VerticalAlignment="Bottom" />
+        <ListBox x:Name="studentList" Grid.Row="1" SelectionChanged="studentList_SelectionChanged" />
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="20 0">
+            <Label Content="Firstname:" />
+            <TextBox x:Name="firstName" TextChanged="firstName_TextChanged" Margin="0 0 0 20" />
+
+            <Label Content="Lastname:" />
+            <TextBox x:Name="lastName" TextChanged="lastName_TextChanged" Margin="0 0 0 20" />
+
+            <Label Content="Email:" />
+            <TextBox x:Name="eMail" TextChanged="eMail_TextChanged" />
+        </StackPanel>
+    </Grid>
+</Page>

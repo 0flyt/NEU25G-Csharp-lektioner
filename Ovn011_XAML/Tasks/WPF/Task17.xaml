@@ -17,7 +17,7 @@
             <Label x:Name="gridSliderValueLabel" Content="1" HorizontalAlignment="Center" />
             <Slider x:Name="gridSlider" ValueChanged="gridSlider_ValueChanged" Maximum="10" Minimum="1" TickFrequency="1" IsSnapToTickEnabled="True" Width="100" />
         </StackPanel>
-        <Grid x:Name="myGrid" Grid.Row="1" ShowGridLines="True">
+        <Grid x:Name="myGrid" Grid.Row="1">
             
         </Grid>
         

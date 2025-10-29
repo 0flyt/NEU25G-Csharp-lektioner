@@ -15,13 +15,14 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical">
-                <Label Content="100" x:Name="sliderValue" HorizontalAlignment="Center" />
                 <Slider
                     x:Name="positionSlider"
                     ValueChanged="positionSlider_ValueChanged"
                     Width="100"
                     TickFrequency="1"
                     Ticks="100"
+                    AutoToolTipPlacement="TopLeft"
+                    Margin="0 20"
                     Maximum="100"
                     Minimum="0"
                 />

@@ -24,9 +24,11 @@ namespace Ovn011_XAML.Tasks.WPF
         {
             InitializeComponent();
             CreateGrid(1);
+            FillGrid(1);
         }
         public void CreateGrid(int x)
         {
+            myGrid.Children.Clear();
             myGrid.ColumnDefinitions.Clear();
             myGrid.RowDefinitions.Clear();
 
@@ -47,12 +49,31 @@ namespace Ovn011_XAML.Tasks.WPF
             }
         }
 
+        public void FillGrid(int x)
+        {
+            int count = 0;
+            for (int i = 0; i < x; i++)
+            {
+
+                for (int j = 0; j < x; j++)
+                {
+
+                    var label = new Label { Content = count, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center };
+                    Grid.SetColumn(label, j);
+                    Grid.SetRow(label, i);
+                    myGrid.Children.Add(label);
+                    count++;
+                }
+            }
+        }
+
         private void gridSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (!IsLoaded) return;
             gridSliderValueLabel.Content = gridSlider.Value;
             int tempValue = (int)gridSlider.Value;
             CreateGrid(tempValue);
+            FillGrid(tempValue);
         }
     }
 }

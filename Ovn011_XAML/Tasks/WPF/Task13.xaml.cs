@@ -28,13 +28,11 @@ namespace Ovn011_XAML.Tasks.WPF
         public Task13()
         {
             InitializeComponent();
-            sliderValue.Content = 0;
         }
 
         private void positionSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int tempValue = (int)e.NewValue;
-            sliderValue.Content = tempValue;
             if (checkBoxX.IsChecked == false)
             {
                 checkBoxX.Content = $"Lock X-value: {tempValue}";

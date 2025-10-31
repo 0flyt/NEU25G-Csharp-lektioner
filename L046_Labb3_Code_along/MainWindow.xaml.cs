@@ -21,14 +21,6 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        var pack = new Models.QuestionPack("MyQuestionPack");
-        DataContext = new QuestionPackViewModel(pack);
-    }
-
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        QuestionPackViewModel viewModel = (DataContext as QuestionPackViewModel);
-        viewModel.Name = "New name";
-        viewModel.Questions.Add(new Models.Question("Vad är 1+1?", "2", "3", "4", "1"));
+        DataContext = new MainWindowViewModel();
     }
 }
